@@ -13,4 +13,8 @@ async function main(path = "LOCAL_PATH") {
       feature: "STREAMING_LABEL_DETECTION"
     }
   };
+  const readStream = fs.createReadStream(path, {
+    highWaterMark: 5 * 1024 * 1024,
+    encoding: "base64"
+  });
 }
